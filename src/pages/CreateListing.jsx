@@ -22,7 +22,7 @@ function CreateListing() {
     furnished: false,
     address: "",
     description: "",
-    offer: true,
+    offer: false,
     regularPrice: 0,
     discountedPrice: 0,
     images: {},
@@ -139,6 +139,7 @@ function CreateListing() {
       imgUrls,
       geoLocation,
       timeStamp: serverTimestamp(),
+      userRef: auth.currentUser.uid,
     }
     delete formDataCopy.images
     formDataCopy.offer && delete formDataCopy.discountedPrice
@@ -183,7 +184,7 @@ function CreateListing() {
           </div>
           <div>
             <p className='text-lg font-semibold'>Baths</p>
-            <input type="number" id="bedrooms" value={bathrooms} onChange={onChange} min="1" max="50" required className="px-4 w-full py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 text-center"/>
+            <input type="number" id="bathrooms" value={bathrooms} onChange={onChange} min="1" max="50" required className="px-4 w-full py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 text-center"/>
           </div>
         </div>
 
