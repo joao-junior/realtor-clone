@@ -34,10 +34,10 @@ function CreateListing() {
   function onChange(e) {
     let boolean = null;
     if(e.target.value === "false") {
-      boolean = true
+      boolean = false
     }
     if(e.target.value === "true") {
-      boolean = false
+      boolean = true
     }
     // files
     if(e.target.files) {
@@ -237,12 +237,12 @@ function CreateListing() {
         <p className="text-lg font-semibold ">Offers</p>
         <div className='flex mb-6'>
           <button type="button" id="offer" value={true} onClick={onChange} className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-            offer ? "bg-white text-black" : "bg-slate-600 text-white"
+            !offer ? "bg-white text-black" : "bg-slate-600 text-white"
           }`}>
             Yes
           </button>
           <button type="button" id="offer" value={false} onClick={onChange} className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-            !offer ? "bg-white text-black" : "bg-slate-600 text-white"
+            offer ? "bg-white text-black" : "bg-slate-600 text-white"
           }`}>
             No
           </button>
@@ -262,7 +262,7 @@ function CreateListing() {
           </div>
         </div>
 
-        {!offer && (<div className="flex items-center mb-6">
+        {offer && (<div className="flex items-center mb-6">
           <div>
             <p className='text-lg font-semibold'>Discounted price</p>
             <div className='flex w-full justify-center items-center space-x-6'>
