@@ -33,11 +33,11 @@ function CreateListing() {
 
   function onChange(e) {
     let boolean = null;
-    if(e.target.value === "false") {
-      boolean = false
-    }
     if(e.target.value === "true") {
       boolean = true
+    }
+    if(e.target.value === "false") {
+      boolean = false
     }
     // files
     if(e.target.files) {
@@ -191,12 +191,12 @@ function CreateListing() {
         <p className="text-lg mt-6 font-semibold ">Parking spot</p>
         <div className='flex'>
           <button type="button" id="parking" value={true} onClick={onChange} className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-            parking ? "bg-white text-black" : "bg-slate-600 text-white"
+            !parking ? "bg-white text-black" : "bg-slate-600 text-white"
           }`}>
             Yes
           </button>
           <button type="button" id="parking" value={false} onClick={onChange} className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-            !parking ? "bg-white text-black" : "bg-slate-600 text-white"
+            parking ? "bg-white text-black" : "bg-slate-600 text-white"
           }`}>
             No
           </button>
@@ -205,12 +205,12 @@ function CreateListing() {
         <p className="text-lg mt-6 font-semibold ">Furnished</p>
         <div className='flex'>
           <button type="button" id="furnished" value={true} onClick={onChange} className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-            furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+            !furnished ? "bg-white text-black" : "bg-slate-600 text-white"
           }`}>
             Yes
           </button>
           <button type="button" id="furnished" value={false} onClick={onChange} className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-            !furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+            furnished ? "bg-white text-black" : "bg-slate-600 text-white"
           }`}>
             No
           </button>
