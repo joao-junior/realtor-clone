@@ -21,10 +21,7 @@ function ListingItem({listing, id, onDelete, onEdit}) {
           </div>
           <p className='font-semibold text-xl m-0 truncate'>{listing.name}</p>
           <p className='text-[#457b9d] mt-2 font-semibold '>
-            ${listing.offer ? listing.discountedPrice
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-             : listing.regularPrice
+            ${listing.regularPrice
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               {listing.type === "rent" && " / month"}

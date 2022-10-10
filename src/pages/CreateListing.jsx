@@ -142,7 +142,7 @@ function CreateListing() {
       userRef: auth.currentUser.uid,
     }
     delete formDataCopy.images
-    formDataCopy.offer && delete formDataCopy.discountedPrice
+    !formDataCopy.offer && delete formDataCopy.discountedPrice
     delete formDataCopy.latitude
     delete formDataCopy.longitude
     const docRef = await addDoc(collection(db, "listings"), formDataCopy)
@@ -232,7 +232,7 @@ function CreateListing() {
         )}
 
         <p className="text-lg font-semibold ">Description</p>
-        <textarea type="text" id="description" value={description} onChange={onChange} placeholder="Address" required className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"/>
+        <textarea type="text" id="description" value={description} onChange={onChange} placeholder="Description" required className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"/>
 
         <p className="text-lg font-semibold ">Offers</p>
         <div className='flex mb-6'>
@@ -266,7 +266,7 @@ function CreateListing() {
           <div>
             <p className='text-lg font-semibold'>Discounted price</p>
             <div className='flex w-full justify-center items-center space-x-6'>
-              <input type="number" id="discountedPrice" value={discountedPrice} onChange={onChange} min="50" max="400000000" required={offer} className="w-full px-4 py-2 text-lg text-gray-700 bg-white border border-gray-300 rounded transition duration-200 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 text-center"/>
+              <input type="number" id="discountedPrice" value={discountedPrice} onChange={onChange} min="5" max="400000000" required={offer} className="w-full px-4 py-2 text-lg text-gray-700 bg-white border border-gray-300 rounded transition duration-200 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 text-center"/>
             {type === "rent" && (
               <div>
                 <p className="text-md w-full whitespace-nowrap">$ / Month</p>
